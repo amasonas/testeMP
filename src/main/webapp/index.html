@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Formulário de cadastro</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid" ng-app="hireApp">
+    <div class="row mainRow">
+        <div class="col-md-12">
+            <div class="row" ng-controller="hireAppController">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 colApp" >
+                    <form id="formUser" name="formUser" role="form">
+                        <div class="welcome" ng-show="step == 0">
+                            <h2>
+                                Bem vindo
+                            </h2>
+                            <p>
+                                Ficamos felizes por sua iniciativa em fazer parte do nosso time.
+                                Para te conhecermos um pouco melhor, por favor, complete este cadastro.
+                            </p>
+                        </div>
+
+                        <div class="user-info" ng-show="step == 1">
+	                        <div class="alert alert-info" role="alert">
+								  Antes de começarmos, precisamos saber alguns dados.<br>
+								  Por favor, preencha todos os campos abaixo antes de ir para a proxima etapa.
+							</div>
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Nome
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name" ng-model="userData.name"
+                                       required>
+                            </div>
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                        ng-model="userData.email" required>
+                            </div>
+							
+                        </div>
+                        <div class="user-skill" ng-show="step == 2">
+                           <div class="alert alert-info" role="alert">
+								  Nos mostre o quanto sabe sobre as seguintes tecnologias.
+							</div>
+                            <div class="form-group">
+
+                                <label for="html"> Conhecimentos em HTML <span
+                                        class="scoreShow">{{userData.htmlSkill}}</span>
+                                </label> <input type="range" name="html" id="hmtl"
+                                                ng-model="userData.htmlSkill" min="0" max="10" data-slider-min="0"
+                                                data-slider-max="20" data-slider-step="1">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="css"> Conhecimentos em CSS <span
+                                        class="scoreShow"> {{userData.cssSkill}}</span>
+                                </label> <input type="range" name="css" id="css"
+                                                ng-model="userData.cssSkill" min="0" max="10">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="javaScript"> Conhecimentos em JavaScript <span
+                                        class="scoreShow"> {{userData.javaScriptSkill}}</span>
+                                </label> <input type="range" name="javaScript" id="javaScript"
+                                                ng-model="userData.javaScriptSkill" min="0" max="10">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="python"> Conhecimentos em Python <span
+                                        class="scoreShow"> {{userData.pythonSkill}}</span>
+                                </label> <input type="range" name="python" id="python"
+                                                ng-model="userData.pythonSkill" min="0" max="10">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="django"> Conhecimentos em Django <span
+                                        class="scoreShow"> {{userData.djangoSkill}} </span>
+                                </label> <input type="range" name="django" id="django"
+                                                ng-model="userData.djangoSkill" min="0" max="10">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="ios"> Conhecimentos em IOS <span
+                                        class="scoreShow"> {{userData.iosSkill}} </span>
+                                </label> <input type="range" name="ios" id="ios"
+                                                ng-model="userData.iosSkill" min="0" max="10">
+                            </div>
+                            <div class="form-group">
+
+                                <label for="android"> Conhecimentos em Android <span
+                                        class="scoreShow">{{userData.androidSkill}}</span>
+                                </label> <input type="range" name="android" id="android"
+                                                ng-model="userData.androidSkill" min="0" max="10">
+                            </div>
+
+                        </div>
+                        <div class="" ng-show="step == 4">
+                            <p><h2   display: table; margin: 0 auto;><i class="fa fa-circle-o-notch fa-spin"></i> Analizando seu perfil </h2></p>
+                        </div>
+                        <div class="" ng-show="step == 5">
+                            <p><h2> Feito!</h2></p>
+                            <p>Analizamos seu perfil, em breve entraremos em contato.</p>
+                        </div>
+                        <div class="" ng-show="step == 6">
+                            <p><h2> Ops!</h2></p>
+                            <p>Ocorreu um erro em nosso servidor, por favor, tente novamente.</p>
+                        </div>
+                        <p>
+                            <a class="btn btn-info" ng-click="decreaseStep()" ng-hide="step==0 || step>3">Voltar</a>
+                            <a class="btn btn-success"  ng-click="increaseStep()" ng-hide="step>3" ng-disabled="checkStepRequirements()">Avançar</a>
+                            <a class="btn btn-success"  onclick="location.reload()" ng-show="step>4" ng-disabled="checkStepRequirements()">Submeter novamente</a>
+                        </p>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
