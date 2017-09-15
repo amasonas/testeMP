@@ -1,0 +1,9 @@
+.mainRow {
+	padding-top: 80px;
+}
+
+.colApp {
+	background: lightblue;
+	min-height: 300px;
+	padding-top: 30px;
+}
